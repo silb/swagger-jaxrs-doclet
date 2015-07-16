@@ -92,6 +92,7 @@ public class ServiceDoclet {
 		options.put("-formParameterAnnotations", 2);
 		options.put("-formParameterTypes", 2);
 		options.put("-stringTypePrefixes", 2);
+		options.put("-integerTypePrefixes", 2);
 
 		options.put("-compositeParamAnnotations", 2);
 		options.put("-compositeParamTypes", 2);

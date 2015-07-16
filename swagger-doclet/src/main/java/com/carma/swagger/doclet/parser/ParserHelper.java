@@ -360,7 +360,6 @@ public class ParserHelper {
 			String typeName = javaType.replace(".", "-");
 			return new String[] { typeName, null };
 		} else {
-
 			// support inner classes, for this we use case sensitivity
 			// e.g. com.my.Foo.Bar should map to Foo-Bar
 			int startPos = -1;
@@ -465,6 +464,12 @@ public class ParserHelper {
 		for (String prefix : options.getStringTypePrefixes()) {
 			if (javaType.startsWith(prefix)) {
 				return new String[] { "string", null };
+			}
+		}
+
+		for (String prefix : options.getIntegerTypePrefixes()) {
+			if (javaType.startsWith(prefix)) {
+				return new String[] { "integer", "int32" };
 			}
 		}
 

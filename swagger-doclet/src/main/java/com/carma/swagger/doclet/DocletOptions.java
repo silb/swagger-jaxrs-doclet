@@ -200,7 +200,8 @@ public class DocletOptions {
 				parsedOptions.parameterNameAnnotations.addAll(asList(copyOfRange(option, 1, option.length)));
 			} else if (option[0].equals("-stringTypePrefixes")) {
 				parsedOptions.stringTypePrefixes.addAll(asList(copyOfRange(option, 1, option.length)));
-
+			} else if (option[0].equals("-integerTypePrefixes")) {
+				parsedOptions.integerTypePrefixes.addAll(asList(copyOfRange(option, 1, option.length)));
 			} else if (option[0].equals("-responseMessageTags")) {
 				addTagsOption(parsedOptions.responseMessageTags, option);
 
@@ -433,6 +434,8 @@ public class DocletOptions {
 	private List<String> stringTypePrefixes; // list of type prefixes that are mapped to string data type, can be used for example to map header types to
 												// strings
 
+	private List<String> integerTypePrefixes;
+
 	private boolean excludeDeprecatedResourceClasses = true;
 	private boolean excludeDeprecatedModelClasses = true;
 	private boolean excludeDeprecatedOperations = true;
@@ -492,6 +495,8 @@ public class DocletOptions {
 		this.stringTypePrefixes = new ArrayList<String>();
 		this.stringTypePrefixes.add("com.sun.jersey.core.header.");
 		this.stringTypePrefixes.add("org.joda.time.");
+
+		this.integerTypePrefixes = new ArrayList<String>();
 
 		// types which simply wrap an entity
 		this.genericWrapperTypes = new ArrayList<String>();
@@ -1075,6 +1080,10 @@ public class DocletOptions {
 	 */
 	public List<String> getStringTypePrefixes() {
 		return this.stringTypePrefixes;
+	}
+
+	public List<String> getIntegerTypePrefixes() {
+		return this.integerTypePrefixes;
 	}
 
 	/**
