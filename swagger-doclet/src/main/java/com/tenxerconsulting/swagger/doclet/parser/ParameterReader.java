@@ -296,12 +296,12 @@ public class ParameterReader {
 			}
 
 			// set enum values
-			// a) if param type is enum build based on enum values
+			// a) if the method has a javadoc tag for allowable values use that
 			ClassDoc typeClassDoc = parameter.type().asClassDoc();
-			allowableValues = ParserHelper.getAllowableValues(typeClassDoc);
+			allowableValues = paramAllowableVals.get(paramName);
 			if (allowableValues == null) {
-				// b) if the method has a javadoc tag for allowable values use that
-				allowableValues = paramAllowableVals.get(paramName);
+				// b) if param type is enum build based on enum values
+				allowableValues = ParserHelper.getAllowableValues(typeClassDoc);
 			}
 
 			if (allowableValues != null && !allowableValues.isEmpty()) {
